@@ -1,0 +1,40 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @rosterserver.username %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <!--<a href="<%= url_for :action => :edit, :id => @rosterserver.object %>" class="ui-btn-right" data-icon="star">-->
+    <a href="<%= url_for :action => :edit, :id => @rosterserver.id %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">Username</div>
+            <div class="itemValue"><%= @rosterserver.username %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">CompanyName</div>
+            <div class="itemValue"><%= @rosterserver.company_name %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Address</div>
+            <div class="itemValue"><%= @rosterserver.address %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">PhoneNumber</div>
+            <div class="itemValue"><%= @rosterserver.phone_number %></div>
+          </li>
+      
+    </ul>
+  </div>
+
+</div>

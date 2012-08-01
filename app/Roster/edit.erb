@@ -1,0 +1,42 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>Edit <%= @roster.username %></h1>
+    <a href="<%= url_for :action => :show, :id => @roster.object %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+    <a href="<%= url_for :action => :delete, :id => @roster.object %>" class="ui-btn-right" data-icon="delete" data-direction="reverse">
+      Delete
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :update %>">
+      <input type="hidden" name="id" value="<%= @roster.object %>"/>
+      
+          <div data-role="fieldcontain">
+            <label for="roster[username]" class="fieldLabel">Username</label>
+            <input type="text" id="roster[username]" name="roster[username]" value="<%= @roster.username %>" <%= placeholder( "Username" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="roster[company_name]" class="fieldLabel">Company name</label>
+            <input type="text" id="roster[company_name]" name="roster[company_name]" value="<%= @roster.company_name %>" <%= placeholder( "Company name" ) %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="roster[address]" class="fieldLabel">Address</label>
+            <input type="text" id="roster[address]" name="roster[address]" value="<%= @roster.address %>" <%= placeholder( "Address" ) %> />
+            <input type="button" value="現在地から住所を取得" onClick="popupAddress('/app/Roster/set_address_ajax');" />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="roster[phone_number]" class="fieldLabel">Phone number</label>
+            <input type="text" id="roster[phone_number]" name="roster[phone_number]" value="<%= @roster.phone_number %>" <%= placeholder( "Phone number" ) %> />
+          </div>
+      
+      <input type="submit" value="Update"/>
+    </form>
+  </div>
+
+</div>

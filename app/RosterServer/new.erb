@@ -1,0 +1,40 @@
+<div data-role="page">
+
+  <div data-role="header" data-position="inline">
+    <h1>New <%= @rosterserver.title %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="back" data-direction="reverse">
+      Cancel
+    </a>
+  </div>
+
+  <div data-role="content">
+    <form method="POST" action="<%= url_for :action => :create %>">
+      <!--<input type="hidden" name="id" value="<%= @rosterserver.object %>"/>-->
+
+      
+          <div data-role="fieldcontain">
+            <label for="rosterserver[username]" class="fieldLabel">Username</label>
+            <input type="text" id="rosterserver[username]" name="rosterserver[username]" <%= placeholder("Username") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="rosterserver[company_name]" class="fieldLabel">Company name</label>
+            <input type="text" id="rosterserver[company_name]" name="rosterserver[company_name]" <%= placeholder("Company name") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="rosterserver[address]" class="fieldLabel">Address</label>
+            <input type="text" id="rosterserver[address]" name="rosterserver[address]" <%= placeholder("Address") %> />
+          </div>
+      
+          <div data-role="fieldcontain">
+            <label for="rosterserver[phone_number]" class="fieldLabel">Phone number</label>
+            <input type="text" id="rosterserver[phone_number]" name="rosterserver[phone_number]" <%= placeholder("Phone number") %> />
+          </div>
+      
+
+      <input type="submit" value="Create"/>
+    </form>
+  </div>
+
+</div>

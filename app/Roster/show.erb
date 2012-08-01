@@ -1,0 +1,47 @@
+<div data-role="page" data-add-back-btn="false">
+
+  <div data-role="header" data-position="inline">
+    <h1><%= @roster.username %></h1>
+    <a href="<%= url_for :action => :index %>" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse">
+      Back
+    </a>
+    <a href="<%= url_for :action => :edit, :id => @roster.object %>" class="ui-btn-right" data-icon="star">
+      Edit
+    </a>
+  </div>
+
+  <div data-role="content">
+    <ul data-role="listview">
+      
+          <li>
+            <div class="itemLabel">Username</div>
+            <div class="itemValue"><%= @roster.username %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">CompanyName</div>
+            <div class="itemValue"><%= @roster.company_name %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">Address</div>
+            <div class="itemValue"><%= @roster.address %></div>
+          </li>
+      
+          <li>
+            <div class="itemLabel">PhoneNumber</div>
+            <div class="itemValue"><%= @roster.phone_number %></div>
+          </li>
+      
+          <li>
+            <div data-role="controlgroup" data-type="horizontal">
+              <% unless @roster.image_uri.nil? || @roster.image_uri == "" %>
+                <img src="<%= Rho::RhoApplication::get_blob_path(@roster.image_uri) %>" />                
+              <% end %>
+              <a href="<%= url_for(:action => :capture, :id => @roster.object) %>">写真設定</a>
+            </div>
+          </li>
+    </ul>
+  </div>
+
+</div>
